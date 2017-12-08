@@ -56,9 +56,9 @@ public class TestMathFraction {
     }
     @Test
     public void sumNumeratorGivenDifferentNonMultipleDenominator(){
-        Fraction sum = new Fraction(3,5).
+        Fraction sum = new Fraction(-3,5).
                 plus(new Fraction(7,3));
-        assertEquals(44,sum.getNumerator());
+        assertEquals(26,sum.getNumerator());
         assertEquals(15,sum.getDenominator());
     }
 }
