@@ -39,4 +39,11 @@ public class TestMathFraction {
         assertEquals(-5,sum.intValue());
     }
 
+    @Test
+    public void sumNumeratorGivenSameDenominator(){
+        Fraction sum = new Fraction(1,2).
+                plus(new Fraction(1,2));
+        assertEquals(2,sum.getNumerator());
+    }
+
 }
