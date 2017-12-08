@@ -18,3 +18,13 @@ Otra forma de hacer lo mismo con mas lineas es
         return new Fraction(sum);
     }
 
+1/2 + 1/2 =
+        numerador   = 2 // si es mismo denominador
+        denominador = 2 // si son multiplos; min(den % den2 ==0)
+
+    public Fraction plus(Fraction otherFraction) {
+        return new Fraction(this.integerValue +
+                otherFraction.integerValue,denominator);
+    }
+Aca no pincha con los test viejos, porque denimonador, lo setea
+pero nunca lo usa

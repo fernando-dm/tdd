@@ -15,15 +15,18 @@ public class Fraction {
 
     public Fraction plus(Fraction otherFraction) {
         return new Fraction(this.integerValue +
-                otherFraction.integerValue);
+                otherFraction.integerValue,denominator);
     }
 
     public int intValue() {
         return integerValue;
     }
 
-
     public int getNumerator() {
         return integerValue;
+    }
+
+    public int getDenominator() {
+        return denominator;
     }
 }
