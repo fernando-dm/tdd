@@ -26,12 +26,17 @@ public class TestMathFraction {
     }
 
     @Test
-    public void IntegerPlusIntegerReturnInteger(){
+    public void integerPlusIntegerReturnInteger(){
         Fraction sum = new Fraction(3).
                 plus(new Fraction(4));
         assertEquals(7,sum.intValue());
     }
 
-    
+    @Test
+    public void negativeIntegerPlusInteger(){
+        Fraction sum = new Fraction(-3).
+                plus(new Fraction(-2));
+        assertEquals(-5,sum.intValue());
+    }
 
 }
