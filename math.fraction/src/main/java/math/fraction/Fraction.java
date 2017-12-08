@@ -25,7 +25,7 @@ public class Fraction {
             return new Fraction((deno/this.denominator*this.integerValue) +
                     otherFraction.integerValue,deno);
 
-        } else if((otherFraction.denominator%this.denominator) !=0){
+        } else if(otherFraction.denominator !=0 && (otherFraction.denominator%this.denominator) !=0){
             deno = (otherFraction.denominator * this.denominator);
             return new Fraction((deno/this.denominator*this.integerValue) +
                     deno/otherFraction.denominator*otherFraction.integerValue,deno);
