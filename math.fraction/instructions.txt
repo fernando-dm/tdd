@@ -17,3 +17,4 @@ Otra forma de hacer lo mismo con mas lineas es
         int sum = this.integerValue + fraction.integerValue
         return new Fraction(sum);
     }
+
