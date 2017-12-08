@@ -18,6 +18,12 @@ public class TestMathFraction {
 
         assertEquals(3,sum.intValue());
     }
+    @Test
+    public void zeroPlusIntegerReturnInteger(){
+        Fraction sum = new Fraction(0).
+                plus(new Fraction(3));
+        assertEquals(3,sum.intValue());
+    }
 
 
 

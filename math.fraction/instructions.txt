@@ -1,0 +1,19 @@
+sumamos fracciones haciendo tdd
+
+0 + 0 = 0
+1 + 1 = 0
+
+
+El metodo plus instancia otra fraccion y la suma a la anterior
+
+    public Fraction plus(Fraction fraction) {
+        return new Fraction(this.integerValue +
+                fraction.integerValue);
+    }
+
+Otra forma de hacer lo mismo con mas lineas es
+
+    public Fraction plus(Fraction fraction) {
+        int sum = this.integerValue + fraction.integerValue
+        return new Fraction(sum);
+    }
