@@ -28,3 +28,7 @@ Otra forma de hacer lo mismo con mas lineas es
     }
 Aca no pincha con los test viejos, porque denimonador, lo setea
 pero nunca lo usa
+
+3/2 + 6/4 =
+        numerador   = 24 // es diferente denominador
+        denominador = 8 // si son multiplos; min(den % den2 ==0)

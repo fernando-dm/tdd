@@ -1,5 +1,7 @@
 package math.fraction;
 
+import static java.lang.Integer.max;
+
 public class Fraction {
     private int integerValue;
     private int numerator;
@@ -14,8 +16,25 @@ public class Fraction {
     }
 
     public Fraction plus(Fraction otherFraction) {
-        return new Fraction(this.integerValue +
-                otherFraction.integerValue,denominator);
+        int deno =0;
+        if (  otherFraction.denominator !=0 &&
+                ((otherFraction.denominator%this.denominator) ==0) ){
+            System.out.println("Son multiplos");
+            deno = max(otherFraction.denominator, this.denominator);
+
+            return new Fraction((deno/this.denominator*this.integerValue) +
+                    otherFraction.integerValue,deno);
+
+        } else if((otherFraction.denominator%this.denominator) !=0){
+            deno = (otherFraction.denominator * this.denominator);
+            return new Fraction((deno/this.denominator*this.integerValue) +
+                    deno/otherFraction.denominator*otherFraction.integerValue,deno);
+        }
+        else{
+            return new Fraction(this.integerValue +
+                    otherFraction.integerValue,denominator);
+        }
+
     }
 
     public int intValue() {
