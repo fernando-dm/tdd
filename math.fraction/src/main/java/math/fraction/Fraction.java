@@ -37,7 +37,6 @@ public class Fraction {
         }
 
         return fraction;
-
     }
 
     public int intValue() {
