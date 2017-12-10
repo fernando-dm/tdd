@@ -32,3 +32,22 @@ pero nunca lo usa
 3/2 + 6/4 =
         numerador   = 24 // es diferente denominador
         denominador = 8 // si son multiplos; min(den % den2 ==0)
+
+--- cambios en sumas y restas con numeradores y denominadores
+
+1) Cambie el constructor 1, y ahora harcodeo denominador a 1, porque
+sabemos que si entra ahi (CONSTRUCTOR 1, O SEA SIN DENOMINADOR),
+el denominador es siempre 1, por lo tanto es buena
+practica; ESTA SOLUCION ES MAS MATEMATICA
+
+Las puse en final, porque  veo que ambos constructores van a tocas a
+integer y a denominador en plus, por lo tanto son final (deben ser)
+    private final int integerValue;
+    private int numerator;
+    private final int denominator;
+
+2) cambio en el constructor 1
+        public Fraction(int integerValue) {
+            this.integerValue = integerValue;
+            this.denominator =1;
+        }

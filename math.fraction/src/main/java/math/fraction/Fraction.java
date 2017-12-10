@@ -3,12 +3,13 @@ package math.fraction;
 import static java.lang.Integer.max;
 
 public class Fraction {
-    private int integerValue;
+    private final int integerValue;
     private int numerator;
-    private int denominator;
+    private final int denominator;
 
     public Fraction(int integerValue) {
         this.integerValue = integerValue;
+        this.denominator =1;
     }
     public Fraction(int numerator, int denominator) {
         this.integerValue = numerator;
