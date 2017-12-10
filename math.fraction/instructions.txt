@@ -51,3 +51,17 @@ integer y a denominador en plus, por lo tanto son final (deben ser)
             this.integerValue = integerValue;
             this.denominator =1;
         }
+
+--
+Nuevo commit de microcambios: commit 16
+Aca sigo los 3 pasos del proceso de cambio
+
+3 pasos del proceso:
+
+1) add new things
+2) Write the clients
+3) remove the old thing
+
+En este ejemplo agrego numerator y saco integerValue,
+lo dejo para que se vea que se depreca, mas adelante ya lo borro, porque no
+se usa
