@@ -61,4 +61,9 @@ public class TestMathFraction {
         assertEquals(26,sum.getNumerator());
         assertEquals(15,sum.getDenominator());
     }
+    @Test
+    public void wholeNumberEqualSameFraction() {
+        assertEquals(new Fraction(5,1),
+                new Fraction(5));
+    }
 }

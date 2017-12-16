@@ -1,19 +1,18 @@
 package math.fraction;
 
 import static java.lang.Integer.max;
+import static java.lang.Integer.numberOfTrailingZeros;
 
 public class Fraction {
-    private final int integerValue;
     private final int numerator;
     private final int denominator;
 
     public Fraction(int integerValue) {
-        this.integerValue = integerValue;
-        this.numerator = integerValue;
-        this.denominator =1;
+        this(integerValue,1);
+//        this.numerator = integerValue;
+//        this.denominator =1;
     }
     public Fraction(int numerator, int denominator) {
-        this.integerValue = numerator;
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -38,7 +37,6 @@ public class Fraction {
             fraction =  new Fraction(this.numerator +
                     otherFraction.numerator,denominator);
         }
-
         return fraction;
     }
 
@@ -52,5 +50,20 @@ public class Fraction {
 
     public int getDenominator() {
         return denominator;
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if (other instanceof Fraction) {
+            Fraction that = (Fraction) other;
+            return this.numerator == that.numerator
+                    && this.denominator == that.denominator;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%d/%d",numerator,denominator);
     }
 }

@@ -26,21 +26,21 @@ Otra forma de hacer lo mismo con mas lineas es
         return new Fraction(this.integerValue +
                 otherFraction.integerValue,denominator);
     }
-Aca no pincha con los test viejos, porque denimonador, lo setea
-pero nunca lo usa
+Aca no pincha con los test viejos, porque denimonador, lo setea en
+el constructor 2, pero nunca lo usa
 
 3/2 + 6/4 =
         numerador   = 24 // es diferente denominador
         denominador = 8 // si son multiplos; min(den % den2 ==0)
 
---- cambios en sumas y restas con numeradores y denominadores
+--- commit 15 cambios en sumas y restas con numeradores y denominadores
 
 1) Cambie el constructor 1, y ahora harcodeo denominador a 1, porque
-sabemos que si entra ahi (CONSTRUCTOR 1, O SEA SIN DENOMINADOR),
-el denominador es siempre 1, por lo tanto es buena
+sabemos que si entra ahi (CONSTRUCTOR 1, O SEA EL CALCULO ES
+SIN DENOMINADOR), el denominador es siempre 1, por lo tanto es buena
 practica; ESTA SOLUCION ES MAS MATEMATICA
 
-Las puse en final, porque  veo que ambos constructores van a tocas a
+Las puse en final, porque  veo que ambos constructores van a tocar a
 integer y a denominador en plus, por lo tanto son final (deben ser)
     private final int integerValue;
     private int numerator;
@@ -63,5 +63,87 @@ Aca sigo los 3 pasos del proceso de cambio
 3) remove the old thing
 
 En este ejemplo agrego numerator y saco integerValue,
-lo dejo para que se vea que se depreca, mas adelante ya lo borro, porque no
-se usa
+lo dejo para que se vea que se depreca, mas adelante ya lo borro,
+porque no se usa
+
+Agrego una solucion mas elegante al 1er constructor
+
+    public Fraction(int integerValue) {
+        this(integerValue,1);
+//        this.numerator = integerValue;
+//        this.denominator =1;
+    }
+
+Este this(var1, var2); llama al constructor 2
+
+    public Fraction(int numerator, int denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
+
+
+COMMIT 17: Implementacion de Equals: Esto me sirve para comparar objetos
+Dado que no puedo compararlos directamente, debo implementar
+
+Debo implementar EQUALS y REDUCE, basicamente para cumplir el ciclo completo de TDD, si bien, solo me importa que los calculos sean correctos, esto es mas completo y compara fraccion completas, con mi codigo solo compara numeradores y denominadores haciendo un get
+
+EQUALS
+
+3/5 y 3/5  ==> 3/5 + 3/5
+
+REDUCE: 3/4 == 6/8
+
+para generar equals, en este caso no lo hago con tdd sino directo.
+
+Hay metodos para hacer equals automaticamente pero generan mucho codigo complicado
+
+ Uso para el test, dos instancias de FRaction, dado que si pongo solo una y la comparo con el resultado que quiero me va a dar bien.
+
+
+public class FractionEqualsTest {
+    @Test
+    public void sameNumeratorAndDenominator(){
+        assertEquals(new Fraction(3,5),
+                new Fraction(3,5));
+    }
+
+Si hago el test anterior, el error de assertion que voy a tener es que no van a concordar los objetos id, entonces creo el meto en la clase Fraction que me sobrescribe toString, y compara String
+
+    @Override
+    public String toString(){
+        return String.format("%d/%d",numerator,denominator);
+    }
+
+
+Pero ahora veo el error de assertion que me dice que ambos string no son comparables a pesar de ser iguales!! ESTE METODO ES PARA MOSTRAR QUE ES NECESARIO HACER UN HASCODE, porque me permite comparar dos objetos, pero no me dice si son iguales, mas alla que tengan el mismo valor
+
+java.lang.AssertionError: expected: math.fraction.Fraction<5/3> but was: math.fraction.Fraction<5/3>
+Expected :math.fraction.Fraction<5/3>
+Actual   :math.fraction.Fraction<5/3>
+
+Esto es porque debo implementar un hashCode, para poder implementar EQUALS
+
+
+// De esta manera sobreescribo equals para poder comparar
+
+ @Override
+    public boolean equals(Object other){
+        if (other instanceof Fraction) {
+            Fraction that = (Fraction) other;
+            return that.numerator == ((Fraction)other).numerator
+                    && (that.denominator == ((Fraction)other).denominator);
+        }
+        return false;
+    }
+
+O lo que es lo mismo, pero mejor expresado
+    @Override
+    public boolean equals(Object other){
+        if (other instanceof Fraction) {
+            Fraction that = (Fraction) other;
+            return this.numerator == that.numerator
+                    && this.denominator == that.denominator;
+        }
+        return false;
+    }
+
