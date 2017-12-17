@@ -1,7 +1,7 @@
 package math.fraction;
 
 import static java.lang.Integer.max;
-import static java.lang.Integer.numberOfTrailingZeros;
+
 
 public class Fraction {
     private final int numerator;

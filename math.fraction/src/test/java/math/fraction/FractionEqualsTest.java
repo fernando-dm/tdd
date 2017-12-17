@@ -1,9 +1,10 @@
-import math.fraction.Fraction;
-import org.junit.Assert;
+package math.fraction;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+
 
 public class FractionEqualsTest {
     @Test
@@ -32,5 +33,5 @@ public class FractionEqualsTest {
 }
 
 //java.lang.AssertionError:
-//Expected :math.fraction.Fraction@deb6432
-//Actual   :math.fraction.Fraction@28ba21f3
+//Expected :Fraction@deb6432
+//Actual   :Fraction@28ba21f3

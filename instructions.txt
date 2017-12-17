@@ -147,8 +147,3 @@ O lo que es lo mismo, pero mejor expresado
         return false;
     }
 
-    @Test
-    public void reduce() {
-        assertEquals(new Fraction(3,4),
-                new Fraction(6,8));
-    }
