@@ -1,0 +1,41 @@
+Misma Kata, pero la resuelvo con Kotlin
+    sumamos fracciones haciendo tdd
+    0 + 0 = 0
+    1 + 1 = 0
+
+    10-8 = 2
+
+    1/5 + 1/5 = 2/5 (o 2/10)   (*)
+
+    Implementar equals para saber si es la misma fraction (*)
+
+// ..  Forma de crear un constructor en Kotlin y de llamarlo
+// ver que no uso la NEW
+
+    class Fraction{
+        private var integerValue: Int
+        constructor(integerValue: Int){
+         this.integerValue = integerValue
+        }
+        fun plus(otherfraction: Fraction):Fraction{
+            return Fraction(this.integerValue +
+                    otherfraction.integerValue)
+        }
+        fun toIntValue():Int{
+            return this.integerValue
+        }
+    }
+
+// Otra forma de hacer lo mismo con menos lineas!, recibo en la clase
+class Fraction(val integerValue: Int){
+    fun plus(otherfraction: Fraction):Fraction{
+        return Fraction(this.integerValue +
+                otherfraction.integerValue)
+    }
+    fun toIntValue():Int{
+        return this.integerValue
+    }
+}
+
+
+
