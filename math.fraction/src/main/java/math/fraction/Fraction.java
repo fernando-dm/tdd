@@ -2,7 +2,6 @@ package math.fraction;
 
 import static java.lang.Integer.max;
 
-
 public class Fraction {
     private final int numerator;
     private final int denominator;
@@ -52,6 +51,7 @@ public class Fraction {
         return denominator;
     }
 
+    // con este metodo equals, sobreescribo el equals que usan los test
     @Override
     public boolean equals(Object other){
         if (other instanceof Fraction) {
@@ -61,7 +61,8 @@ public class Fraction {
         }
         return false;
     }
-
+    // con este metodo en el equals anterior le digo que la salida
+    // del objeto Fraction sea String con este formato
     @Override
     public String toString(){
         return String.format("%d/%d",numerator,denominator);

@@ -5,7 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-
+// clase para testear los equals
+// una vez que funcione la paso a la clase de test original
 public class FractionEqualsTest {
     @Test
     public void sameNumeratorAndDenominator(){
@@ -30,6 +31,11 @@ public class FractionEqualsTest {
                 new Fraction(5));
     }
 
+    @Test
+    public void wholeNumberNotEqualToDifferentwholeNumber(){
+        assertNotEquals(new Fraction(6),
+                new Fraction(5));
+    }
 }
 
 //java.lang.AssertionError:

@@ -1,18 +1,15 @@
-class Fraction(internal var integerVal: Int) {
-    private var denominator = 1
-    //    private val integerVal = integerValue
+class Fraction{
 
-    constructor(integerVa: Int, denominator: Int) : this(integerVa) {
-        this.integerVal = integerVa
-        this.denominator = denominator
+    private var integerValue: Int
+
+    constructor(integerValue: Int){
+     this.integerValue = integerValue
     }
-
-
-    fun plus(otherFraction: Fraction): Fraction {
-        return Fraction(this.integerVal + otherFraction.integerVal)
+    fun plus(otherfraction: Fraction):Fraction{
+        return Fraction(this.integerValue +
+                otherfraction.integerValue)
     }
-    fun toInte(): Int {
-        return integerVal
+    fun toInte():Int{
+        return this.integerValue
     }
-
 }

@@ -3,6 +3,7 @@ package math.fraction;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class TestMathFraction {
     @Test
@@ -42,10 +43,11 @@ public class TestMathFraction {
 
     @Test
     public void sumNumeratorGivenSameDenominator(){
-        Fraction sum = new Fraction(3,2).
-                plus(new Fraction(1,2));
-        assertEquals(4,sum.getNumerator());
-        assertEquals(2,sum.getDenominator());
+        Fraction sum = new Fraction(1,5).
+                plus(new Fraction(2,5));
+        assertEquals(3,sum.getNumerator());
+        assertEquals(5,sum.getDenominator());
+//        assertEquals(new Fraction(3,5),sum);
     }
 
     @Test
@@ -66,5 +68,22 @@ public class TestMathFraction {
     public void wholeNumberEqualSameFraction() {
         assertEquals(new Fraction(5,1),
                 new Fraction(5));
+    }
+    @Test
+    public void wholeNumberNotEqualToDifferentwholeNumber(){
+        assertNotEquals(new Fraction(6),
+                new Fraction(5));
+    }
+    // Agrego ultimo cambio, ahora sum, me trae el resultado
+    // antes debia llamar a una fc de ese obj, ahora con los Override
+    // obtengo 3/5 (en String)
+    @Test
+    public void REFACTORsumNumeratorGivenSameDenominator(){
+        Fraction sum = new Fraction(1,5).
+                plus(new Fraction(2,5));
+        assertEquals(3,sum.getNumerator());
+        assertEquals(5,sum.getDenominator());
+        System.out.println(sum);
+        assertEquals(new Fraction(3,5),sum);
     }
 }

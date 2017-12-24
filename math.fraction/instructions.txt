@@ -95,9 +95,11 @@ REDUCE: 3/4 == 6/8
 
 para generar equals, en este caso no lo hago con tdd sino directo.
 
-Hay metodos para hacer equals automaticamente pero generan mucho codigo complicado
+Hay metodos para hacer equals automaticamente pero generan mucho codigo
+complicado
 
- Uso para el test, dos instancias de FRaction, dado que si pongo solo una y la comparo con el resultado que quiero me va a dar bien.
+Uso para el test, dos instancias de FRaction, dado que si
+pongo solo una y la comparo con el resultado que quiero me va a dar bien.
 
 
 public class FractionEqualsTest {
@@ -107,7 +109,9 @@ public class FractionEqualsTest {
                 new Fraction(3,5));
     }
 
-Si hago el test anterior, el error de assertion que voy a tener es que no van a concordar los objetos id, entonces creo el meto en la clase Fraction que me sobrescribe toString, y compara String
+Si hago el test anterior, el error de assertion que voy a tener es que no van a
+concordar los objetos id, entonces creo el meto en la clase Fraction que me
+sobrescribe toString, y compara String
 
     @Override
     public String toString(){
@@ -115,7 +119,10 @@ Si hago el test anterior, el error de assertion que voy a tener es que no van a 
     }
 
 
-Pero ahora veo el error de assertion que me dice que ambos string no son comparables a pesar de ser iguales!! ESTE METODO ES PARA MOSTRAR QUE ES NECESARIO HACER UN HASCODE, porque me permite comparar dos objetos, pero no me dice si son iguales, mas alla que tengan el mismo valor
+Pero ahora veo el error de assertion que me dice que ambos string no son
+comparables a pesar de ser iguales!! ESTE METODO ES PARA MOSTRAR QUE ES
+NECESARIO HACER UN HASCODE, porque me permite comparar dos objetos, pero
+no me dice si son iguales, mas alla que tengan el mismo valor
 
 java.lang.AssertionError: expected: Fraction<5/3> but was: Fraction<5/3>
 Expected :Fraction<5/3>
