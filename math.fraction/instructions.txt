@@ -182,6 +182,29 @@ EJ
 
         assertEquals(3, new Fraction(3).plus(new Fraction(0))); //oneLine
 
+*********
+    HashCode implementation: En el contrato de un objeto dice que debemos
+    implementar un hashCode, sino rompe Liskov
+
+// esto es una implementacion ilegal de un
+hashCode:
+@Override
+    public int hashCode(){
+    return 0;
+    }
+
+Si nunca pienso usar esto como una key en un map
+puedo retornar una constante!! y es legal
+Y es mejor que la implementacion original de hashcode
+que trae problemas con los equals
+
+El unico requisito es que si son fracciones iguales
+me debe devolver la misma fraccion (objeto) y que el
+mismo no haya cambiado
+
+Si lo voy a usar de forma profesional, deberia hacer TDD de
+EqualsHashCode test
+Equals Builder
 
 
 

@@ -62,6 +62,12 @@ public class Fraction {
         }
         return false;
     }
+    // Lo implemento para cumplir con el contrato
+    @Override
+    public int hashCode(){
+    return 0;
+    }
+
     // con este metodo en el equals anterior le digo que la salida
     // del objeto Fraction sea String con este formato
     @Override
