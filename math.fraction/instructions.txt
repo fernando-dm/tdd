@@ -3,6 +3,11 @@ sumamos fracciones haciendo tdd
 0 + 0 = 0
 1 + 1 = 0
 
+10-8 = 2
+
+1/5 + 1/5 = 2/5 (o 2/10)   (*)
+
+Implementar equals para saber si es la misma fraction (*)
 
 El metodo plus instancia otra fraccion y la suma a la anterior
 
@@ -161,6 +166,22 @@ EJ
         System.out.println(num); // ==> 6/1
         assertNotEquals(new Fraction(6),
                 new Fraction(5));
+
+
+Depende de mi como quiero ver el metodo
+por eso creo checkAddsFractionsAsIntegers()
+y desde ahi trabajo, tambien puedo hacer oneLine test
+, depende de mi y como lo quiera ver
+EJ
+
+        Fraction sum = new Fraction(3).
+                plus(new Fraction(0));
+        assertEquals(3,sum.intValue());             // metodo original
+
+        checkAddsFractionsAsIntegers(3,0,3);        // con otro metodo
+
+        assertEquals(3, new Fraction(3).plus(new Fraction(0))); //oneLine
+
 
 
 

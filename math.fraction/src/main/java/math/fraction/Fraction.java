@@ -39,17 +39,18 @@ public class Fraction {
         return fraction;
     }
 
-    public int intValue() {
-        return numerator;
-    }
-
-    public int getNumerator() {
-        return numerator;
-    }
-
-    public int getDenominator() {
-        return denominator;
-    }
+    // No necesito estos metodos si hago Override
+//    public int intValue() {
+//        return numerator;
+//    }
+//
+//    public int getNumerator() {
+//        return numerator;
+//    }
+//
+//    public int getDenominator() {
+//        return denominator;
+//    }
 
     // con este metodo equals, sobreescribo el equals que usan los test
     @Override
