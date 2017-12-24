@@ -73,6 +73,8 @@ public class TestMathFraction {
     }
     @Test
     public void wholeNumberNotEqualToDifferentwholeNumber(){
+        Fraction num = new Fraction(6);
+//        System.out.println(num); //  6/1
         assertNotEquals(new Fraction(6),
                 new Fraction(5));
     }
@@ -89,5 +91,34 @@ public class TestMathFraction {
         System.out.println(sum);
         assertEquals(new Fraction(3,5),sum);
     }
+
+    // *********
+    // *** Refactor con metodos
+    public void checkAddsFractionsAsIntegers(int addend, int augend, int expected){
+//        assertEquals(expected,new Fraction(addend).plus(new Fraction(augend)).intValue()); // comparo numeradores 5 y 5
+        assertEquals(new Fraction(expected),new Fraction(addend).plus(new Fraction(augend))); // comparo string 5/1 y 5/1
+    }
+
+    @Test
+    public void REFACTORzeroPlusZeroReturnZero(){
+        checkAddsFractionsAsIntegers(0,0,0);
+    }
+
+    @Test
+    public void REFACTORintegerPlusZeroReturnInteger(){
+//        Fraction sum = new Fraction(3).
+//                plus(new Fraction(0));
+//        assertEquals(3,sum.intValue());
+        checkAddsFractionsAsIntegers(3,0,3);
+    }
+    @Test
+    public void REFACTORzeroPlusIntegerReturnInteger(){
+//        Fraction sum = new Fraction(0).
+//                plus(new Fraction(3));
+//        assertEquals(3,sum.intValue());
+        checkAddsFractionsAsIntegers(0,3,3);
+
+    }
+
 
 }
