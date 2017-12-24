@@ -64,6 +64,8 @@ public class TestMathFraction {
         assertEquals(26,sum.getNumerator());
         assertEquals(15,sum.getDenominator());
     }
+    // ya no necesito llamar a los metodos, luego de
+    // sobreescribir con equals
     @Test
     public void wholeNumberEqualSameFraction() {
         assertEquals(new Fraction(5,1),
@@ -74,6 +76,7 @@ public class TestMathFraction {
         assertNotEquals(new Fraction(6),
                 new Fraction(5));
     }
+
     // Agrego ultimo cambio, ahora sum, me trae el resultado
     // antes debia llamar a una fc de ese obj, ahora con los Override
     // obtengo 3/5 (en String)
@@ -86,4 +89,5 @@ public class TestMathFraction {
         System.out.println(sum);
         assertEquals(new Fraction(3,5),sum);
     }
+
 }
